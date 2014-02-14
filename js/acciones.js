@@ -3,7 +3,8 @@
 var $contenido = ""
 var $color
 var $esta
-
+var $nombre=""
+				
 $(document).ready(function(){
 	
 
@@ -46,7 +47,7 @@ var $Quien = $(this).attr('id');
 });
 
             function gotFS(fileSystem) {
-				var $nombre
+
 				 var fecha = new Date();
 
 
