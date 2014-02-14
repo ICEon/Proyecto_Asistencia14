@@ -15,29 +15,12 @@ function onDeviceReady() {
 
 
 
- window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+ 
 
 $('.Btn_Guardar').tap(function(){
-
-	$('#listado li').each(function (index) {
-		$color = $('#' + $(this).attr('id') + ' a').css('color');
-		
-		if ($color == 'rgb(255, 0, 0)')
-		{
-			$esta = 'NA';
-		}
-		if ($color == 'rgb(0, 255, 0)')		
-		{
-			$esta = 'A';
-		}
-		
-		alert ($esta);
-		
-$contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').text() + "," + $esta; 
-  });
-  
-  alert ($contenido);
+Guardar();
 });
+
 
 $("li").tap(function() {
 alert (	 $('#' + $(this).attr('id') + ' a').text());
@@ -82,7 +65,7 @@ function gotDir(dirEntry) {
                     console.log("Correcto");
                 };
 
-  
+alert ($contenido);  
                 writer.write($contenido);
                 writer.abort();
                 // contents of file now 'some different text'
@@ -91,3 +74,24 @@ function gotDir(dirEntry) {
             function fail(error) {
                 console.log("error : "+error.code);
             }
+function Guardar()
+{
+		$('#listado li').each(function (index) {
+		$color = $('#' + $(this).attr('id') + ' a').css('color');
+		
+		if ($color == 'rgb(255, 0, 0)')
+		{
+			$esta = 'NA';
+		}
+		if ($color == 'rgb(0, 255, 0)')		
+		{
+			$esta = 'A';
+		}
+		
+		
+$contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').text() + "," + $esta; 
+  });
+  
+window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+
+}
