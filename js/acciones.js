@@ -19,9 +19,7 @@ function onDeviceReady() {
  
 
 $('.Btn_Guardar').tap(function(){
-	alert ("antes");
 Guardar();
-	alert ("despues");
 });
 
 
@@ -96,7 +94,7 @@ function Guardar()
 		}
 		
 		
-$contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').text() + "," + $esta; 
+$contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').text() + "," + $esta + "\n"; 
   });
   
 window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
