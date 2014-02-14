@@ -18,13 +18,13 @@ function onDeviceReady() {
  
 
 $('.Btn_Guardar').tap(function(){
+	alert ("antes");
 Guardar();
+	alert ("despues");
 });
 
 
 $("li").tap(function() {
-alert (	 $('#' + $(this).attr('id') + ' a').text());
-alert (	  $('#' + $(this).attr('id') + ' a'));
 	
 	var Asiste = $(this).attr("data-icon");
 var $Quien = $(this).attr('id');
@@ -66,7 +66,7 @@ function gotDir(dirEntry) {
                 };
 
 alert ($contenido);  
-                writer.write($contenido);
+                writer.write("nuevo contenido");
                 writer.abort();
                 // contents of file now 'some different text'
             }
