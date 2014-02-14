@@ -82,7 +82,7 @@ function gotDir(dirEntry) {
             }
 function Guardar()
 {
-	$contenido = "";
+	$contenido = "No. Control, Nombre, Asistencia" + "\n";
 	
 		$('#listado li').each(function (index) {
 		$color = $('#' + $(this).attr('id') + ' a').css('color');
@@ -96,7 +96,7 @@ function Guardar()
 			$esta = 'A';
 		}
 		
-$contenido = "No. Control, Nombre, Asistencia";		
+		
 $contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').text() + "," + $esta + "\n"; 
   });
   
