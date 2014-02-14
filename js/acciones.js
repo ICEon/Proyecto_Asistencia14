@@ -1,6 +1,6 @@
 // JavaScript Document
 
-var $contenido
+var $contenido = ""
 var $color
 var $esta
 
@@ -33,7 +33,7 @@ $('.Btn_Guardar').tap(function(){
 		
 		alert ($esta);
 		
-$contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').val() + "," + $esta; 
+$contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').attr('value') + "," + $esta; 
   });
   
   alert ($contenido);
@@ -80,7 +80,7 @@ function gotDir(dirEntry) {
                 };
 
   
-                writer.write("Esto es el contenido");
+                writer.write($contenido);
                 writer.abort();
                 // contents of file now 'some different text'
             }
