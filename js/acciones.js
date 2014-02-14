@@ -52,13 +52,13 @@ var $Quien = $(this).attr('id');
 
 
  
-$nombre = fecha.getDate() + "-" + (fecha.getMonth() +1) + "-" + fecha.getFullYear() + "-" + fecha.getHours() + "-" + fecha.getMinutes() + "" + fecha.getSeconds();
+$nombre = fecha.getDate() + "-" + (fecha.getMonth() +1) + "-" + fecha.getFullYear() + "-" + fecha.getHours() + "-" + fecha.getMinutes() + "-" + fecha.getSeconds();
 				
    fileSystem.root.getDirectory("Datos_Asistencia", {create: true}, gotDir);
 }
 
 function gotDir(dirEntry) {
-    dirEntry.getFile($nombre+".txt", {create: true, exclusive: true}, gotFileEntry);
+    dirEntry.getFile($nombre+".csv", {create: true, exclusive: true}, gotFileEntry);
 
 
             }
