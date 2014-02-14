@@ -1,13 +1,18 @@
 // JavaScript Document
 $(document).ready(function(){
+	
+
+
 document.addEventListener("deviceready", onDeviceReady, false);
 
 
 function onDeviceReady() {
 
- window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+alert ("listo");
+writeFiles();
+// window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 
-$("li").tap(function() {
+$("li").bind(function() {
 	var Asiste = $(this).attr("data-icon");
 var $Quien = $(this).attr('id');
 	if (Asiste == 'delete')
@@ -54,3 +59,25 @@ function gotDir(dirEntry) {
             function fail(error) {
                 console.log("error : "+error.code);
             }
+
+
+function writeFiles(){
+	var content = "este es el contenido"
+	//$('#fileContent').val();
+	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
+		fileSystem.root.getFile('ejemplo-write.txt', { create: true }, function(archivo){
+			archivo.createWriter(function(escritor){
+				escritor.onwrite = function(e){
+					pgAlert("El archivo fue escrito Correctamente!");
+				};
+				escritor.write(content);
+			}, function(){
+				pgAlert("No existe el archivo, agrega contenido y luego presiona en Escribir");
+			});
+		}, function(err){
+			pgAlert("No se pudo acceder al sistema de archivos");
+		});
+	}, function(err){
+		pgAlert("No se pudo acceder al sistema de archivos");
+	});
+}
