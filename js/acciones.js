@@ -33,13 +33,16 @@ $('.Btn_Guardar').tap(function(){
 		
 		alert ($esta);
 		
-$contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').attr('value') + "," + $esta; 
+$contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').text() + "," + $esta; 
   });
   
   alert ($contenido);
 });
 
 $("li").tap(function() {
+alert (	 $('#' + $(this).attr('id') + ' a').text());
+alert (	  $('#' + $(this).attr('id') + ' a'));
+	
 	var Asiste = $(this).attr("data-icon");
 var $Quien = $(this).attr('id');
 	if (Asiste == 'delete')
