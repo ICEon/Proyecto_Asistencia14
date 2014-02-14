@@ -96,7 +96,7 @@ function Guardar()
 			$esta = 'A';
 		}
 		
-		
+$contenido = "No. Control, Nombre, Asistencia";		
 $contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').text() + "," + $esta + "\n"; 
   });
   
