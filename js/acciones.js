@@ -1,4 +1,8 @@
 // JavaScript Document
+
+var $contenido
+var $esta
+
 $(document).ready(function(){
 	
 
@@ -8,14 +12,17 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
 
-alert ("listo");
-//writeFiles();
+
+
  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 
 $('.Btn_Guardar').tap(function(){
-	alert ('guardando');
+
 	$('#listado li').each(function (index) {
-alert(	 $(this).attr("id")); 
+		$esta = $('#' + $(this).attr('id') + ' a').css('color');
+		alert ($esta);
+		
+$contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').val() + ""; 
   });
 });
 
@@ -68,25 +75,3 @@ function gotDir(dirEntry) {
             function fail(error) {
                 console.log("error : "+error.code);
             }
-
-
-function writeFiles(){
-	var content = "este es el contenido"
-	//$('#fileContent').val();
-	window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){
-		fileSystem.root.getFile('ejemplo-write.txt', { create: true }, function(archivo){
-			archivo.createWriter(function(escritor){
-				escritor.onwrite = function(e){
-					pgAlert("El archivo fue escrito Correctamente!");
-				};
-				escritor.write(content);
-			}, function(){
-				pgAlert("No existe el archivo, agrega contenido y luego presiona en Escribir");
-			});
-		}, function(err){
-			pgAlert("No se pudo acceder al sistema de archivos");
-		});
-	}, function(err){
-		pgAlert("No se pudo acceder al sistema de archivos");
-	});
-}
