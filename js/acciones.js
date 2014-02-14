@@ -9,8 +9,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 
 alert ("listo");
-writeFiles();
-// window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+//writeFiles();
+ window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 
 $("li").tap(function() {
 	var Asiste = $(this).attr("data-icon");
