@@ -12,6 +12,13 @@ alert ("listo");
 //writeFiles();
  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 
+$('#Btn_Guardar').tap(function(){
+	alert ('guardando');
+	$('#listado li').each(function (index) {
+alert(	 $(this).attr("id")); 
+  });
+});
+
 $("li").tap(function() {
 	var Asiste = $(this).attr("data-icon");
 var $Quien = $(this).attr('id');
@@ -47,10 +54,12 @@ function gotDir(dirEntry) {
             }
 
             function gotFileWriter(writer) {
-                writer.onwrite = function(evt) {
+                writer.onwrite = function(evt) {				
+					
                     console.log("Correcto");
                 };
 
+  
                 writer.write("Esto es el contenido");
                 writer.abort();
                 // contents of file now 'some different text'
