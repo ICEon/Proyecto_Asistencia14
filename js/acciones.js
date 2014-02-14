@@ -68,10 +68,11 @@ function gotDir(dirEntry) {
             function gotFileWriter(writer) {
                 writer.onwrite = function(evt) {				
 					
-alert ("Archivo Guradado");
+                    console.log("Correcto");
                 };
 
                 writer.write($contenido);
+				alert ("Archivo Guardado");
                 writer.abort();
 
             }
