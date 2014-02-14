@@ -12,7 +12,7 @@ alert ("listo");
 writeFiles();
 // window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 
-$("li").bind(function() {
+$("li").tap(function() {
 	var Asiste = $(this).attr("data-icon");
 var $Quien = $(this).attr('id');
 	if (Asiste == 'delete')
