@@ -1,6 +1,7 @@
 // JavaScript Document
 
 var $contenido
+var $color
 var $esta
 
 $(document).ready(function(){
@@ -19,11 +20,23 @@ function onDeviceReady() {
 $('.Btn_Guardar').tap(function(){
 
 	$('#listado li').each(function (index) {
-		$esta = $('#' + $(this).attr('id') + ' a').css('color');
+		$color = $('#' + $(this).attr('id') + ' a').css('color');
+		
+		if ($color == 'rgb(255, 0, 0)')
+		{
+			$esta = 'NA';
+		}
+		if ($color == 'rgb(0, 255, 0)')		
+		{
+			$esta = 'A';
+		}
+		
 		alert ($esta);
 		
-$contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').val() + ""; 
+$contenido = $contenido + $(this).attr("id") + "," + $('#' + $(this).attr('id') + ' a').val() + "," + $esta; 
   });
+  
+  alert ($contenido);
 });
 
 $("li").tap(function() {
