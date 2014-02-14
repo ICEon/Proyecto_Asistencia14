@@ -68,12 +68,12 @@ function gotDir(dirEntry) {
             function gotFileWriter(writer) {
                 writer.onwrite = function(evt) {				
 					
-                    console.log("Correcto");
+alert ("Archivo Guradado");
                 };
 
                 writer.write($contenido);
                 writer.abort();
-                // contents of file now 'some different text'
+
             }
 
             function fail(error) {
@@ -81,6 +81,8 @@ function gotDir(dirEntry) {
             }
 function Guardar()
 {
+	$contenido = "";
+	
 		$('#listado li').each(function (index) {
 		$color = $('#' + $(this).attr('id') + ' a').css('color');
 		
