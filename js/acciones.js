@@ -46,11 +46,18 @@ var $Quien = $(this).attr('id');
 });
 
             function gotFS(fileSystem) {
+				var $nombre
+				 var fecha = new Date();
+
+
+ 
+$nombre = fecha.getDate() + "-" + (fecha.getMonth() +1) + "-" + fecha.getFullYear() + "-" + fecha.getHours() + "-" + fecha.getMinutes() + "" + fecha.getSeconds();
+				
    fileSystem.root.getDirectory("Datos_Asistencia", {create: true}, gotDir);
 }
 
 function gotDir(dirEntry) {
-    dirEntry.getFile("Asistencia.txt", {create: true, exclusive: true}, gotFileEntry);
+    dirEntry.getFile($nombre+".txt", {create: true, exclusive: true}, gotFileEntry);
 
 
             }
@@ -65,8 +72,7 @@ function gotDir(dirEntry) {
                     console.log("Correcto");
                 };
 
-alert ($contenido);  
-                writer.write("nuevo contenido");
+                writer.write($contenido);
                 writer.abort();
                 // contents of file now 'some different text'
             }
