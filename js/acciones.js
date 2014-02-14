@@ -12,7 +12,7 @@ alert ("listo");
 //writeFiles();
  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
 
-$('#Btn_Guardar').tap(function(){
+$('.Btn_Guardar').tap(function(){
 	alert ('guardando');
 	$('#listado li').each(function (index) {
 alert(	 $(this).attr("id")); 
